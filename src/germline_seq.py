@@ -81,13 +81,13 @@ def parse_germline_sequences(gene_name, allele, nt_seq, aa_seq, sig_pep_end, gap
 def get_germline_seqs_from_db(path):
     with DBConnection() as conn:
         query_result = pd.read_sql_query(query_by_chain("IGH"), conn)
-        create_fasta_files("IGH", query_result, path, True)
+        create_fasta_files("IGH", query_result, path, False)
 
         query_result = pd.read_sql_query(query_by_chain("IGL"), conn)
-        create_fasta_files("IGL", query_result, path, True)
+        create_fasta_files("IGL", query_result, path, False)
 
         query_result = pd.read_sql_query(query_by_chain("IGK"), conn)
-        create_fasta_files("IGK", query_result, path, True)
+        create_fasta_files("IGK", query_result, path, False)
 
 
 if __name__ == "__main__":
